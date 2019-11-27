@@ -1,0 +1,17 @@
+.btn__container {
+    background: #ccc;
+    border-radius: 5px;
+    padding: 5px 50px;
+    text-align: center;
+    cursor: pointer;
+    border-bottom: 1px solid #ff00ff;
+
+    &:active {
+        border-bottom: none;
+    }
+
+    p {
+        line-height: 11px;
+        font-size: 14px;
+    }
+}
