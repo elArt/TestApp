@@ -1,23 +1,33 @@
 import React from 'react';
-
-import Button from 'src/components/Button';
-import logo from './logo.svg';
-import './App.css';
+import { Layout, Menu } from 'antd';
+import { Route, NavLink } from 'react-router-dom';
+import Home from './components/Home/';
+import uploadPage from './components/Upload/';
+import 'antd/dist/antd.css';
+import styles from './styles.module.scss';
 
 function App() {
-
-  const handlerBtn = () => {
-    console.log('Do not use arrow functions in render methods in the REACT!!!!!');
-  }
+  const { Header, Content, Footer } = Layout;
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-       <Button title="Click on me" actionClick={handlerBtn} />
-      </header>
+      <Layout className="layout">
+        <Header>
+          <div className="logo" />
+          <Menu theme="dark" mode="horizontal" className={styles.menu}>
+            <Menu.Item key="1">
+              <NavLink to="/home">Home</NavLink>
+            </Menu.Item>
+            <Menu.Item key="2">
+              <NavLink to="/uplaod">Upload</NavLink>
+            </Menu.Item>
+          </Menu>
+        </Header>
+        <Content className={styles.content}>
+          <Route name="home" path="/home" component={Home} />
+          <Route name="uploadPage" path="/uplaod" component={uploadPage} />
+        </Content>
+        <Footer className={styles.footer}>Ant Design ©2018 Created by Ant UED</Footer>
+      </Layout>
     </div>
   );
 }
