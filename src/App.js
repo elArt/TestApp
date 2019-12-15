@@ -11,11 +11,11 @@ function App() {
   return (
     <div className="App">
       <Layout className="layout">
-        <Header>
+        <Header className={styles.header}>
           <div className="logo" />
           <Menu theme="dark" mode="horizontal" className={styles.menu}>
             <Menu.Item key="1">
-              <NavLink to="/home">Home</NavLink>
+              <NavLink to="/">Home</NavLink>
             </Menu.Item>
             <Menu.Item key="2">
               <NavLink to="/uplaod">Upload</NavLink>
@@ -23,7 +23,7 @@ function App() {
           </Menu>
         </Header>
         <Content className={styles.content}>
-          <Route name="home" path="/home" component={Home} />
+          <Route name="home" exact path="/" component={Home} />
           <Route name="uploadPage" path="/uplaod" component={uploadPage} />
         </Content>
         <Footer className={styles.footer}>Ant Design ©2018 Created by Ant UED</Footer>

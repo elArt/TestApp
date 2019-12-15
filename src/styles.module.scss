@@ -1,11 +1,14 @@
 .menu {
   line-height: 64px;
 }
+.header {
+  min-height: 10vh;
+}
 
 .content {
   padding: 0 50px;
   text-align: center;
-  min-height: 10vh;
+  min-height: 80vh;
 }
 .footer {
   text-align: center;
