@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './styles.module.scss';
 
+let arrayFiles;
+
 class UploadPage extends React.Component {
   state = {
     allFiles: [],
@@ -9,17 +11,16 @@ class UploadPage extends React.Component {
   changeUpload = e => {
     e.preventDefault();
     this.setState({
-      allFiles: [].concat(this.state.allFiles, [...e.target.files]),
+      allFiles: [].concat(arrayFiles, [...e.target.files]),
     });
   };
 
   handleClick = e => {
-    [...this.state.allFiles].map((f, i) => {
+    arrayFiles.map((f, i) => {
       if (f.name === e.target.className) {
-        let newArray = [...this.state.allFiles];
-        newArray.splice(i, 1);
+        arrayFiles.splice(i, 1);
         this.setState({
-          allFiles: newArray,
+          allFiles: arrayFiles,
         });
       }
     });
@@ -28,17 +29,17 @@ class UploadPage extends React.Component {
   componentDidUpdate() {}
 
   render() {
+    arrayFiles = [...this.state.allFiles];
     return (
       <div className={styles.uploadPage}>
         <h1>UploadPage</h1>
         <input type="file" multiple onChange={this.changeUpload}></input>
         <ul onClick={this.handleClick}>
-          {[...this.state.allFiles].map(f => {
-            let size = Math.round(f.size / 1024) + 'kb';
+          {arrayFiles.map(f => {
             return (
               <li key={f.lastModified}>
                 <p>{f.name}</p>
-                <p>size: {size}</p>
+                <p>size: {Math.round(f.size / 1024) + 'kb'}</p>
                 <span className={f.name}>Х</span>
               </li>
             );
