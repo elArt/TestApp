@@ -7,7 +7,7 @@ import { Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 const PORT = process.env.PORT || 3000;
-const MONGO_URI = process.env.MONGO_URI!;
+const MONGO_URI = process.env.MONGO_URI! || 'mongodb+srv://temka77777:zTt5UYfV4IZ3uMmF@cluster0.kwxar4v.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 
 
 mongoose

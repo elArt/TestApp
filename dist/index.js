@@ -2,11 +2,11 @@ import { WebSocketServer } from 'ws';
 import mongoose from 'mongoose';
 import express from 'express';
 import cors from 'cors';
-import { Message as MessageModel } from './Message';
+import { Message as MessageModel } from './Message.js';
 import { Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 const PORT = process.env.PORT || 3000;
-const MONGO_URI = process.env.MONGO_URI;
+const MONGO_URI = process.env.MONGO_URI || 'mongodb+srv://temka77777:zTt5UYfV4IZ3uMmF@cluster0.kwxar4v.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 mongoose
     .connect(MONGO_URI)
     .then(() => console.log('✅ MongoDB connected'))
