@@ -2,7 +2,7 @@ import { WebSocketServer, WebSocket } from 'ws';
 import mongoose from 'mongoose';
 import express from 'express';
 import cors from 'cors';
-import { Message as MessageModel } from './Message';
+import { Message as MessageModel } from './Message.js';
 import { Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
